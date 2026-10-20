@@ -92,8 +92,10 @@ sudo cp ~/.config/omarchy/plugins/leonavas.mouse/udev/70-asus-rog-mouse.rules /e
 sudo udevadm control --reload && sudo udevadm trigger --subsystem-match=hidraw
 ```
 
-The rule lists the ROG Gladius III Wireless receiver (`0b05:197f`). Other ROG
-receivers likely speak the same protocol; add a line with their product id.
+The rule lists the ROG Gladius III Wireless: its receiver (`0b05:197f`) and
+the mouse itself on its cable (`0b05:197d`), which enumerates as a separate
+device and answers the same query with the charging flag set. Other ROG mice
+likely speak the same protocol; add lines with their product ids.
 A sleeping mouse does not answer, so the icon dims until the next poll after
 it wakes.
 
